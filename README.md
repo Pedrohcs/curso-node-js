@@ -1,2 +1,2 @@
 # curso-node-js
-Diretório responsável pelas atividades e exemplos realizados durante um curso de Node.js
+Repositório destinado às atividades e exemplos passados no curso de Node.js da Udemy
