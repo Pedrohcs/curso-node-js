@@ -48,3 +48,11 @@ db.estados.find({                      //realiza a busca para retornar todos os 
         }
     })
 
+db.estados.count()                  //mostra quantos objetos tem na collection selecionada
+
+db.estados.find({                   //comando para filtar quais dados do estado, no caso TO, vao aparecer na tela
+    sigla: "TO"}, {                  //onde, foi selecionado para não(0) mostrar o _id e mostrar(1) o nome e a sigla
+        _id: 0, 
+        nome: 1, 
+        sigla: 1
+    })
