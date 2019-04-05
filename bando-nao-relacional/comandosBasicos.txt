@@ -22,6 +22,8 @@ db.estados.insert({                    //comando para criar um objeto dentro da 
       })
 
 db.estados.find()                        //comando para buscar todos os objetos do banco na collection, como por exemplo 'estados'
+                                                  //onde pode-se usar o comando .skip() para pular uma quatidade de objetos para começar a mostrar o resultado
+                                                  //e pode-se usar o comando .limit() para delimitar quantos objetos serão mostrados
 
 db.estados.find().pretty()           //a busca vem formatada como um JSON
 
@@ -33,9 +35,16 @@ db.estados.findOne({                 //realizar busca para apenas um objeto pass
     nome: "São Paulo"
     })
 
-db.estados.find({                        //relizar busca fazendo operadores logicos como OU(or)
+db.estados.find({                        //relizar busca fazendo operadores logicos como OU(or) e E(and)
     $or: [{                                    //onde pode ser adicionado o .pretty() para formatar como JSON
         sigla: "TO" },{ 
             sigla: "SP" 
         }]
     })
+
+db.estados.find({                      //realiza a busca para retornar todos os objetos que tenham o parametro, neste caso 'capital'
+    capital: {                              //onde pode ser adicionado o .pretty() para formatar como JSON
+        $exists: true 
+        }
+    })
+
