@@ -4,7 +4,7 @@ use wm                                       //criar o db wm e começar a utiliz
 
 show collection                          //o db não tera nenhuma collection
 
-db.createCollection('estados')    //comando para criar uma collection
+db.createCollection('estados')           //comando para criar uma collection
 
 db.estados.drop()                       //comando para excluir uma collection 
 
