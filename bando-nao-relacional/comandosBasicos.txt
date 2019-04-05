@@ -1,0 +1,41 @@
+show dbs                                    //mostrar todos os dbs isntanciados
+
+use wm                                       //criar o db wm e começar a utilizar
+
+show collection                          //o db não tera nenhuma collection
+
+db.createCollection('estados')    //comando para criar uma collection
+
+db.estados.drop()                       //comando para excluir uma collection 
+
+db.estados.insert({                    //comando para criar um objeto dentro da collection (mesmo se a collection estado nao existir)
+     nome: "Acre", 
+     sigla: "AC", 
+     regiao: "Norte"
+      })
+
+ db.estados.save({                     //alem do insert pode-se usar o comando save, onde insere e salva o objeto. 
+      nome:"Tocantins",                 lembrando que não é necessário todos os objetos terem a mesma quantidade de informação
+      sigla: "TO", 
+      regiao: "Norte", 
+      capital: "Palmas" 
+      })
+
+db.estados.find()                        //comando para buscar todos os objetos do banco na collection, como por exemplo 'estados'
+
+db.estados.find().pretty()           //a busca vem formatada como um JSON
+
+db.estados.find({                       //relizar busca de todos os objetos que correspondem ao parametro passado
+    nome: "São Paulo"                //onde pode ser adicionado o .pretty() para formatar como JSON
+    })
+
+db.estados.findOne({                 //realizar busca para apenas um objeto passando parametro para busca
+    nome: "São Paulo"
+    })
+
+db.estados.find({                        //relizar busca fazendo operadores logicos como OU(or)
+    $or: [{                                    //onde pode ser adicionado o .pretty() para formatar como JSON
+        sigla: "TO" },{ 
+            sigla: "SP" 
+        }]
+    })
